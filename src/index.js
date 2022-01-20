@@ -1,3 +1,4 @@
-import './style.css'
+import './style.css';
+import test2 from './api.js';
 
-console.log("It works!");
+test2();
