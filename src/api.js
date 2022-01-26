@@ -42,8 +42,9 @@ async function getWeather(city) {
     }
   }
 
-function test2(){
+function weather(){
+    getWeather("Moscow");
     getUserInput();
 }
 
-export default test2;
+export default weather;
