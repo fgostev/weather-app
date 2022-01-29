@@ -27,12 +27,12 @@ async function getWeather(city) {
     if(response.name)
     {   
        cityName.textContent = response.name;
-       sky.textContent = "sky " + response.weather[0].main;
-       temperature.textContent = "temperature " + response.main.temp;
-       feelsLike.textContent = "feels like " + response.main.feels_like;
-       windSpeed.textContent = "wind speed " + response.wind.speed;
-       humidity.textContent = "humidity " + response.main.humidity;
-       pressure.textContent = "pressure " + response.main.pressure;}
+       sky.textContent = response.weather[0].main;
+       temperature.textContent = response.main.temp + '°C';
+       feelsLike.textContent = "feels like: " + response.main.feels_like + "°C";
+       windSpeed.textContent = "wind speed: " + response.wind.speed;
+       humidity.textContent = "humidity: " + response.main.humidity + "%";
+       pressure.textContent = "pressure: " + response.main.pressure;}
        else {
         alert("city not found");
        }

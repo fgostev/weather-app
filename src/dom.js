@@ -1,28 +1,38 @@
 
 function createSearchBar(){
+    const navHeader = document.createElement('header');
+
     const searchBar = document.createElement('form');
     searchBar.id = 'searchBar';
     const cityName = document.createElement('input');
     cityName.type = 'search';
     cityName.id = 'cityName';
     cityName.name = 'cityName';
+    cityName.placeholder = 'search city'
     cityName.required  = true;
 
     const submit = document.createElement('input');
     submit.type = 'text';
     submit.type = 'submit';
-    submit.value = 'search';
+    // submit.value = 'search';
     submit.id = 'submit';
 
-    searchBar.append(cityName, submit);
+    navHeader.append(searchBar);
+    searchBar.append(cityName);
 
 
-    return searchBar;
+    return navHeader;
 }
 
 function displayInfo(){
     const infoContainer = document.createElement('div');
     infoContainer.id = "infoContainer";
+
+    const generalInfo = document.createElement('div');
+    generalInfo.id = generalInfo;
+
+    const detailedInfo = document.createElement('div');
+    detailedInfo.id = 'detailedInfo';
     
     const sky = document.createElement('p');
     sky.id = "sky";
@@ -45,7 +55,10 @@ function displayInfo(){
     const pressure = document.createElement("p");
     pressure.id = "pressure";
 
-    infoContainer.append(sky, cityName, temperature, feelsLike, windSpeed, humidity, pressure);
+    generalInfo.append(sky, cityName, temperature);
+    detailedInfo.append(feelsLike, windSpeed, humidity, pressure)
+
+    infoContainer.append(generalInfo, detailedInfo);
 
     return infoContainer;
 
