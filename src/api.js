@@ -1,4 +1,3 @@
-import {displayInfo} from './dom.js';
 
 
 function getUserInput(){
@@ -11,6 +10,19 @@ function getUserInput(){
     })
 }
 
+function displayLoader(){
+    const infoContainer = document.getElementById('infoContainer');
+    const loader = document.getElementById('loader');
+    loader.style.display = "block";
+    infoContainer.style.display = "none";
+}
+
+function hideLoader(){
+    const loader = document.getElementById('loader');
+    loader.style.display = "none";
+    infoContainer.style.display = "flex";
+}
+
 async function getWeather(city) {
     const cityName = document.getElementById("city");
     const sky = document.getElementById("sky");
@@ -19,6 +31,7 @@ async function getWeather(city) {
     const windSpeed = document.getElementById("windSpeed");
     const humidity = document.getElementById("humidity");
     const pressure = document.getElementById("pressure");   
+    displayLoader();
 
     try{
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=32b67a112ef0565aff809db230fd4248`, {mode: 'cors'});
@@ -26,6 +39,7 @@ async function getWeather(city) {
     { 
     if(response.name)
     {   
+        hideLoader();
        cityName.textContent = response.name;
        sky.textContent = response.weather[0].main;
        temperature.textContent = response.main.temp + '°C';

@@ -24,6 +24,13 @@ function createSearchBar(){
     return navHeader;
 }
 
+function createLoader(){
+    const loader = document.createElement('div');
+    loader.id = "loader";
+
+    return loader;
+}
+
 function displayInfo(){
     const infoContainer = document.createElement('div');
     infoContainer.id = "infoContainer";
@@ -68,7 +75,9 @@ function page(){
     const mainPage = document.getElementById('content');
     const searchBar = createSearchBar();
     const infoContainer = displayInfo();
-    mainPage.append(searchBar, infoContainer);
+    const loader = createLoader();
+    // infoContainer.append(loader);
+    mainPage.append(searchBar, loader, infoContainer);
 }
 
 export default page;

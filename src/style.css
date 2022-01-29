@@ -35,8 +35,10 @@ input {
 #infoContainer{
     margin-top: 10%;
     display: flex;
+    display: none;
     color: rgb(240, 230, 211);
     padding-left: 7%;
+
 }
 
 #sky{
@@ -69,6 +71,28 @@ input {
     border-left:0.2rem solid rgba(255, 255, 255, 0.5);
     letter-spacing: 0.1rem;
 }
+
+
+#loader {
+    display: none;
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    z-index: 1;
+    position: absolute;
+    margin-top: 10%;
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #a6b5be; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 
 @media screen and (max-width:600px) {
