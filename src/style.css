@@ -69,3 +69,26 @@ input {
     border-left:0.2rem solid rgba(255, 255, 255, 0.5);
     letter-spacing: 0.1rem;
 }
+
+
+@media screen and (max-width:600px) {
+    #infoContainer{
+        flex-direction: column;
+    }
+
+    #detailedInfo{
+       font-size: 0.9rem;
+       border-left: transparent;
+       margin-top: 0.5rem;
+       text-align: center;
+       border-top:0.1rem solid rgba(255, 255, 255, 0.5);
+       margin-right: 10%;
+       padding-top: 8%;
+    }
+    #city{
+        font-size: 3rem;
+    }
+    #temperature{
+        font-size: 3.5rem;
+    }
+}
