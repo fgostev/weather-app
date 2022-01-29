@@ -32,6 +32,15 @@ input {
     font-size: 20px; 
 }
 
+#wrongMessage{
+    display: none;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 3%;
+    margin-top: 5px;
+    color: rgb(194, 121, 121);
+}
+
 #infoContainer{
     margin-top: 10%;
     display: flex;

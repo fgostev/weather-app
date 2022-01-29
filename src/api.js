@@ -23,6 +23,16 @@ function hideLoader(){
     infoContainer.style.display = "flex";
 }
 
+function displayWrongMessage(){
+    const wrongMessage =  document.getElementById('wrongMessage');
+    wrongMessage.style.display = "flex";
+}
+
+function hideWrongMessage(){
+    const wrongMessage =  document.getElementById('wrongMessage');
+    wrongMessage.style.display = "none";
+}
+
 async function getWeather(city) {
     const cityName = document.getElementById("city");
     const sky = document.getElementById("sky");
@@ -32,6 +42,7 @@ async function getWeather(city) {
     const humidity = document.getElementById("humidity");
     const pressure = document.getElementById("pressure");   
     displayLoader();
+    hideWrongMessage();
 
     try{
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=32b67a112ef0565aff809db230fd4248`, {mode: 'cors'});
@@ -48,7 +59,8 @@ async function getWeather(city) {
        humidity.textContent = "humidity: " + response.main.humidity + "%";
        pressure.textContent = "pressure: " + response.main.pressure;}
        else {
-        alert("city not found");
+        displayWrongMessage();
+        hideLoader();
        }
     })}
     catch(err){

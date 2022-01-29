@@ -4,6 +4,7 @@ function createSearchBar(){
 
     const searchBar = document.createElement('form');
     searchBar.id = 'searchBar';
+    searchBar.autocomplete = "off";
     const cityName = document.createElement('input');
     cityName.type = 'search';
     cityName.id = 'cityName';
@@ -14,14 +15,23 @@ function createSearchBar(){
     const submit = document.createElement('input');
     submit.type = 'text';
     submit.type = 'submit';
-    // submit.value = 'search';
     submit.id = 'submit';
+
 
     navHeader.append(searchBar);
     searchBar.append(cityName);
 
 
     return navHeader;
+}
+
+function createWrongMessage(){
+
+    const wrongMessage = document.createElement('p');
+    wrongMessage.textContent = "No location found!";
+    wrongMessage.id = "wrongMessage";
+
+    return wrongMessage;
 }
 
 function createLoader(){
@@ -75,9 +85,10 @@ function page(){
     const mainPage = document.getElementById('content');
     const searchBar = createSearchBar();
     const infoContainer = displayInfo();
+    const wrongMessage = createWrongMessage();
     const loader = createLoader();
     // infoContainer.append(loader);
-    mainPage.append(searchBar, loader, infoContainer);
+    mainPage.append(searchBar, wrongMessage, loader, infoContainer);
 }
 
 export default page;
